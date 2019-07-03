@@ -62,6 +62,10 @@ terraform/install: | $(BIN_DIR) guard/program/jq
 	$(@D) --version
 	@ echo "[$@]: Completed successfully!"
 
+terratest/install: | $(BIN_DIR) guard/program/go
+	go get github.com/gruntwork-io/terratest/modules/terraform
+	go get github.com/gruntwork-io/terratest/modules/random
+
 terraform-docs/install: TFDOCS_VERSION ?= latest
 terraform-docs/install: | $(BIN_DIR) guard/program/jq
 	@ $(MAKE) install/gh-release/$(@D) FILENAME="$(BIN_DIR)/$(@D)" OWNER=segmentio REPO=$(@D) VERSION=$(TFDOCS_VERSION) QUERY='.name | endswith("$(OS)-$(ARCH)")'

@@ -13,6 +13,16 @@ You will be prompted for basic info (your name, module name, etc.) which will be
 
 That's all you need to get started.
 
+## Testing the module
+
+The `tests` folder has the skeleton of a testing suite.
+
+In order to use the testing suite you will need to do the following:
+
+1. Install `go`
+2. Run `make terratest/install` to install the prerequisites.
+3. Run `go test` from within the `tests` directory
+
 ## Inputs
 
 You will be asked for these fields:
@@ -28,4 +38,4 @@ You will be asked for these fields:
 
 ## Examples
 
-You can find example terraform extensive modules at `https://github.com/search?q=plus3it%2Fterraform-aws-tardigrade`
+You can find example terraform modules at `https://github.com/search?q=plus3it%2Fterraform-aws-tardigrade`
