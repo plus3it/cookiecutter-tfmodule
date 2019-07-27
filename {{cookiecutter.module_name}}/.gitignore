@@ -7,3 +7,6 @@
 
 # .tfvars files
 *.tfvars
+
+# custom file for cookiecutter
+org_repo.sh
