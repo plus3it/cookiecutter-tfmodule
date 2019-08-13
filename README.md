@@ -5,7 +5,7 @@ Cookiecutter template to manage consistent creation of Terraform modules.
 ## To use this template
 
 ```bash
-$ pip install cookiecutter hub python-terraform
+$ pip install cookiecutter GitPython hub python-terraform
 $ cookiecutter https://github.com/plus3it/cookiecutter-tfmodule.git
 ```
 

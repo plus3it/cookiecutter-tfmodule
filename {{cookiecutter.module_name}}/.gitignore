@@ -8,5 +8,5 @@
 # .tfvars files
 *.tfvars
 
-# custom file for cookiecutter
-org_repo.sh
+# ignore this file
+!tfmodule-template.tf
