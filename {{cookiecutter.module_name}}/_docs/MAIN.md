@@ -1,3 +1,3 @@
-## {{cookiecutter.module_name}}
+# {{cookiecutter.module_name}}
 
 {{cookiecutter.short_description}}
