@@ -7,3 +7,6 @@
 
 # .tfvars files
 *.tfvars
+
+# ignore this file
+!tfmodule-template.tf
