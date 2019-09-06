@@ -19,11 +19,10 @@ The `tests` folder implements a simple test harness.
 
 In order to use the testing suite you will need to do the following:
 
-0. Write test cases that use the module, placing each test case in its own directory under `tests/`, e.g. `tests/<test_case1>`
-1. Install `go`
-2. Run `make dep/install` to install dep
-3. Run `make terratest/install` to install the prerequisites.
-4. Run `make terratest/test` for your suite of tests to run
+1. Write test cases that use the module, placing each test case in its own directory under `tests/`, e.g. `tests/<test_case1>`
+2. Install `go`
+3. Run `make terratest/install` to install the prerequisites
+4. Run `make test` for your suite of tests to run
 
 ### Example test case
 For the most part, you will create simple terraform code that will just instantiate your module
