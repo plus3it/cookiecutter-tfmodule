@@ -121,6 +121,6 @@ terratest/install: | guard/program/go
 	cd tests && go mod tidy
 
 terratest/test: | guard/program/go
-	cd tests && go test -timeout 20m
+	cd tests && go test -count=1 -timeout 20m
 
 test: terratest/test
