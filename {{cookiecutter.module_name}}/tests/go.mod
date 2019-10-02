@@ -1,11 +1,11 @@
 module {{cookiecutter.module_name}}/tests
 
-go 1.12
+go 1.13
 
 require (
-	github.com/gruntwork-io/terratest v0.18.6
+	github.com/gruntwork-io/terratest v0.19.3
 	github.com/magiconair/properties v1.8.1 // indirect
 	github.com/stretchr/testify v1.4.0 // indirect
-	golang.org/x/crypto v0.0.0-20190829043050-9756ffdc2472 // indirect
-	golang.org/x/net v0.0.0-20190827160401-ba9fcec4b297 // indirect
+	golang.org/x/crypto v0.0.0-20190911031432-227b76d455e7 // indirect
+	golang.org/x/net v0.0.0-20190918130420-a8b05e9114ab // indirect
 )
