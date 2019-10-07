@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### 1.0.0
+
+**Commit Delta**: [Change from 0.0.3 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/0.0.4...1.0.0)
+
+**Released**: 2019.10.07
+
+**Summary**:
+
+*   Update automatic organizational repo generation to 1.0.0 which uses terraform 0.12.x
+
 ### 0.0.4
 
 **Commit Delta**: [Change from 0.0.3 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/0.0.3...0.0.4)
