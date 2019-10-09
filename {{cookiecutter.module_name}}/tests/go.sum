@@ -6,6 +6,8 @@ github.com/gruntwork-io/terratest v0.19.1 h1:kUjPCLH5LzfxGbl7jLZE1EzszBEFeZwRVZy
 github.com/gruntwork-io/terratest v0.19.1/go.mod h1:NjUn6YXA5Skxt8Rs20t3isYx5Rl+EgvGB8/+RRXddqk=
 github.com/gruntwork-io/terratest v0.19.3 h1:/uJzKm5/GqXlHa9S96jLzJwrUtvc0mqQwoYonZBtZME=
 github.com/gruntwork-io/terratest v0.19.3/go.mod h1:NjUn6YXA5Skxt8Rs20t3isYx5Rl+EgvGB8/+RRXddqk=
+github.com/gruntwork-io/terratest v0.19.5 h1:0JNnFvjUkLKpOc9zy3gLFftbnq080bLhGVEdcN7YfZo=
+github.com/gruntwork-io/terratest v0.19.5/go.mod h1:NjUn6YXA5Skxt8Rs20t3isYx5Rl+EgvGB8/+RRXddqk=
 github.com/magiconair/properties v1.8.1 h1:ZC2Vc7/ZFkGmsVC9KvOjumD+G5lXy2RtTKyzRKO2BQ4=
 github.com/magiconair/properties v1.8.1/go.mod h1:PppfXfuXeibc/6YijjN8zIbojt8czPbwD3XqdrwzmxQ=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
