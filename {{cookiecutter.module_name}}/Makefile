@@ -83,6 +83,11 @@ terraform/lint: | guard/program/terraform
 	terraform fmt -check=true -diff=true
 	@ echo "[$@]: Terraform files PASSED lint test!"
 
+terraform/format: | guard/program/terraform
+	@ echo "[$@]: Formatting Terraform files..."
+	terraform fmt -recursive
+	@ echo "[$@]: Successfully formatted terraform files!"
+
 sh/%: FIND_SH := find . $(FIND_EXCLUDES) -name '*.sh' -type f -print0
 sh/lint: | guard/program/shellcheck
 	@ echo "[$@]: Linting shell scripts..."
