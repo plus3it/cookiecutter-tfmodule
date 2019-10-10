@@ -4,9 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### 1.1.0
+
+**Commit Delta**: [Change from 1.0.0 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.0.0...1.1.0)
+
+**Released**: 2019.10.10
+
+**Summary**:
+
+*   Adds ability to auto-approve and auto-merge PRs from Dependabot
+*   Adds a `terraform/format` make target
+
 ### 1.0.0
 
-**Commit Delta**: [Change from 0.0.3 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/0.0.4...1.0.0)
+**Commit Delta**: [Change from 0.0.4 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/0.0.4...1.0.0)
 
 **Released**: 2019.10.07
 
