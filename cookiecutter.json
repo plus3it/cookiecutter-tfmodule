@@ -1,6 +1,7 @@
 {
     "_copy_without_render": [
-        "terraform/*"
+        "terraform/*",
+        ".github/*"
     ],
     "create_org_repo": "no",
     "create_repo": "no",
