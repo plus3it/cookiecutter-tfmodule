@@ -76,9 +76,13 @@ def get_collaborators():
     return collaborators
 
 
-def run_terraform(directory, target_module):
+def run_terraform(directory, terraform_vars, target_module):
     terraform = Terraform(directory)
     terraform.init(from_module=target_module)
+
+    with open(directory + "terraform.tfvars.json", "w") as fh_:
+        fh_.write(json.dumps(terraform_vars))
+
     ret_code, stdout, stderr = (
         terraform.apply(
             auto_approve=True,
@@ -210,10 +214,7 @@ if __name__ == "__main__":
         if collaborators:
             terraform_vars['access_teams'] = collaborators
 
-        with open(directory + "terraform.tfvars.json", "w") as fh_:
-            fh_.write(json.dumps(terraform_vars))
-
-        run_terraform(directory, TF_MODULE_URL)
+        run_terraform(directory, terraform_vars,  TF_MODULE_URL)
 
         shutil.rmtree(os.path.join(os.getcwd(), directory))
         source_repo = (
