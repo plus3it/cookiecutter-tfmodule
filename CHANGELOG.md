@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### 1.1.2
+
+**Commit Delta**: [Change from 1.1.1 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.1.1...1.1.2)
+
+**Released**: 2019.10.16
+
+**Summary**:
+
+*   Adjusts terraform workflow to support terraform 0.12
+
 ### 1.1.1
 
 **Commit Delta**: [Change from 1.1.0 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.1.0...1.1.1)
