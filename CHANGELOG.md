@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### 1.1.3
+
+**Commit Delta**: [Change from 1.1.2 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.1.2...1.1.3)
+
+**Released**: 2019.11.2
+
+**Summary**:
+
+*   Pins tfdocs-awk version
+*   Updates required tf version in the default test
+
 ### 1.1.2
 
 **Commit Delta**: [Change from 1.1.1 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.1.1...1.1.2)
