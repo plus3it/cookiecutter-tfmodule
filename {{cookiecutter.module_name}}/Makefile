@@ -47,6 +47,17 @@ install/gh-release/%:
 	$* --version
 	@ echo "[$@]: Completed successfully!"
 
+install/pip/%: PYTHON ?= python
+install/pip/%: | guard/env/PYPI_PKG_NAME
+	@ echo "[$@]: Installing $*..."
+	$(PYTHON) -m pip install --user $(PYPI_PKG_NAME)
+	ln -sf ~/.local/bin/$* $(BIN_DIR)/$*
+	$* --version
+	@ echo "[$@]: Completed successfully!"
+
+black/install:
+	@ $(MAKE) install/pip/$(@D) PYPI_PKG_NAME=$(@D)
+
 zip/install:
 	@ echo "[$@]: Installing $(@D)..."
 	apt-get install zip -y
@@ -119,6 +130,16 @@ docs/lint: | tfdocs-awk/install guard/program/terraform-docs
 	@ echo "[$@] Linting documentation files.."
 	@ bash -eu -o pipefail autodocs.sh -l
 	@ echo "[$@] documentation linting complete!"
+
+python/lint: | guard/program/black
+	@ echo "[$@]: Linting Python files..."
+	black --check .
+	@ echo "[$@]: Python files PASSED lint test!"
+
+python/format: | guard/program/black
+	@ echo "[$@]: Formatting Python files..."
+	black .
+	@ echo "[$@]: Successfully formatted Python files!"
 
 terratest/install: | guard/program/go
 	cd tests && go mod init {{cookiecutter.module_name}}/tests

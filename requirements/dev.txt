@@ -1,3 +1,4 @@
 cookiecutter==1.6.0
 GitPython==3.0.5
 python-terraform==0.10.1
+black==19.10b0

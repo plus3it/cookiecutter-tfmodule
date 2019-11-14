@@ -9,3 +9,7 @@ update_configs:
   - package_manager: "go:modules"
     directory: "/tests"
     update_schedule: "daily"
+
+  - package_manager: "python"
+    directory: "/"
+    update_schedule: "live"
