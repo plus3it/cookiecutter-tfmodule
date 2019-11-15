@@ -23,6 +23,12 @@ jobs:
     - stage: lint
       name: JSON Lint/Format Verification
       script: make json/lint
+    - stage: lint
+      language: python
+      python: 3.6
+      name: Python Lint/Format Verification
+      install: pip install -r requirements/dev.txt
+      script: make python/lint
     - stage: deploy
       if: branch = master AND type = push AND repo = plus3it/cookiecutter-tfmodule
       before_script:

@@ -31,6 +31,12 @@ jobs:
       script:
         - make terraform/lint
         - make docs/lint
+    - stage: lint
+      language: python
+      python: 3.6
+      name: Python Lint/Format Verification
+      install: pip install -r requirements/dev.txt
+      script: make python/lint
     - stage: deploy
       if: branch = master AND type = push AND repo = {{cookiecutter.github_username}}/{{cookiecutter.module_name}}
       before_script:
