@@ -12,31 +12,8 @@ stages:
 jobs:
   include:
     - stage: lint
-      name: EditorConfig Syntax Verification
-      install:
-        - npm install -g eclint
-        - eclint --version
-      script: eclint check
-    - stage: lint
-      name: Shell Script Syntax Verification
-      script: make sh/lint
-    - stage: lint
-      name: JSON Lint/Format Verification
-      script: make json/lint
-    - stage: lint
-      name: Terraform Lint/Format Verification
-      install:
-        - make terraform/install
-        - make terraform-docs/install
-      script:
-        - make terraform/lint
-        - make docs/lint
-    - stage: lint
-      language: python
-      python: 3.6
-      name: Python Lint/Format Verification
-      install: pip install -r requirements/dev.txt
-      script: make python/lint
+      name: Project Syntax Verification
+      script: make && make docker/run target=lint
     - stage: deploy
       if: branch = master AND type = push AND repo = {{cookiecutter.github_username}}/{{cookiecutter.module_name}}
       before_script:
