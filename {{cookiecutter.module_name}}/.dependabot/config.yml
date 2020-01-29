@@ -14,6 +14,6 @@ update_configs:
     directory: "/"
     update_schedule: "live"
 
-    - package_manager: "docker"
+  - package_manager: "docker"
     directory: "/"
     update_schedule: "daily"
