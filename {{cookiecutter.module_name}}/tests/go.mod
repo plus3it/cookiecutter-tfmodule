@@ -2,4 +2,4 @@ module {{cookiecutter.module_name}}/tests
 
 go 1.13
 
-require github.com/gruntwork-io/terratest v0.24.2
+require github.com/gruntwork-io/terratest v0.25.0
