@@ -4,7 +4,6 @@
     ],
     "create_org_repo": "no",
     "create_repo": "no",
-    "github_readonly_token": "",
     "github_releases_token": "",
     "github_username": "plus3it",
     "module_name": "template",

@@ -4,9 +4,29 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### 1.1.7
+
+**Commit Delta**: [Change from 1.1.6 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.1.6...1.1.7)
+
+**Released**: 2020.04.08
+
+**Summary**:
+
+*   Remove github readonly token from cookiecutter inputs
+
+### 1.1.6
+
+**Commit Delta**: [Change from 1.1.5 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.1.5...1.1.6)
+
+**Released**: 2020.03.25
+
+**Summary**:
+
+*   Removes stale dependencies
+
 ### 1.1.5
 
-**Commit Delta**: [Change from 1.1.2 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.1.4...1.1.5)
+**Commit Delta**: [Change from 1.1.4 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.1.4...1.1.5)
 
 **Released**: 2020.1.29
 
@@ -16,7 +36,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### 1.1.4
 
-**Commit Delta**: [Change from 1.1.2 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.1.3...1.1.4)
+**Commit Delta**: [Change from 1.1.3 release](https://github.com/plus3it/cookiecutter-tfmodule/compare/1.1.3...1.1.4)
 
 **Released**: 2020.1.29
 

@@ -75,7 +75,6 @@ You will be asked for these fields:
 | ------------------ | ------- | ----------- |
 | ``create_repo`` | ``no`` | Whether or not to automatically create a repo on GitHub. |
 | ``create_org_repo`` | ``no`` | Whether or not to automatically create an organizational repo on GitHub. |
-| ``github_readonly_token`` | ``null`` | GitHub OATH Token to make informational API calls. |
 | ``github_releases_token`` | ``null`` | GitHub OATH Token used to automatically tag repo on a pull request approval. |
 | ``github_username`` | ``plus3it`` | Your GitHub Username. |
 | ``module_name`` | ``template`` | The name of the terraform module that you are creating. |
