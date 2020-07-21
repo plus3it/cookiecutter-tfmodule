@@ -1,0 +1,22 @@
+version: 2
+updates:
+- package-ecosystem: docker
+  directory: "/{{cookiecutter.module_name}}"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: docker
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: gomod
+  directory: "/{{cookiecutter.module_name}}/tests"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: terraform
+  directory: "/{{cookiecutter.module_name}}"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
