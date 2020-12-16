@@ -1,3 +1,5 @@
+"""Create GitHub project."""
+
 import os
 import json
 import re
@@ -8,11 +10,6 @@ import tempfile
 import git
 
 from python_terraform import Terraform
-
-try:
-    input = raw_input  # py2 compatibility
-except NameError:
-    pass
 
 # get the github url of tfmodule template
 TF_GITHUB_REPO_SOURCE = "tfmodule-template.tf"
@@ -29,6 +26,7 @@ PERM_OPTIONS = frozenset(["push", "pull", "admin"])
 
 
 def multiple_choices(question):
+    """Return multiple choice user selection."""
     selection = []
     additional = "Would you like to add another (y/n)? [n]: "
 
@@ -41,6 +39,7 @@ def multiple_choices(question):
 
 
 def check_choice(question):
+    """Return valid user yes/no answer."""
     while True:
         choice = input(question).lower()
         if choice in YES_OPTIONS:
@@ -50,7 +49,7 @@ def check_choice(question):
 
 
 def get_collaborators():
-    # Questions that have multiple layers to them
+    """Return list of collaborators to add to the project."""
     collaborators = []
     collab_q = "Grant an organizational team access to the repo(y/n)? [n]: "
 
@@ -78,19 +77,21 @@ def get_collaborators():
 
 
 def run_terraform(directory, terraform_vars, target_module):
+    """Run terraform init and apply."""
     terraform = Terraform(directory)
     terraform.init(from_module=target_module)
 
     with open(directory + "terraform.tfvars.json", "w") as fh_:
         fh_.write(json.dumps(terraform_vars))
 
-    ret_code, stdout, stderr = terraform.apply(
+    # ret_code, stdout, stderr
+    _, _, _ = terraform.apply(
         auto_approve=True, capture_output=False, raise_on_error=True
     )
 
 
 def open_pr(source_repo, working_dir):
-    """Opens a pull request."""
+    """Open a pull request."""
 
     # create a temp dir
     temp_dir = tempfile.mkdtemp()
@@ -127,15 +128,15 @@ def open_pr(source_repo, working_dir):
     subprocess.check_call(["hub", "pull-request", "--no-edit"])
 
 
-if __name__ == "__main__":
-
+def main():
+    """Create GitHub project."""
     if "{{ cookiecutter.create_repo }}".lower() == "yes":
         subprocess.check_call(["git", "init"])
         subprocess.check_call(["hub", "create"])
     elif "{{ cookiecutter.create_org_repo }}".lower() == "yes":
         print("\nPost hook questions\n")
         # Yes/No Questions
-        YN_QUESTIONS = {
+        yn_questions = {
             "enable_strict_checks": "Require branches to be up to"
             + " date before merging (y/n)? [n]: ",
             "enforce_admins": "Require admins to oblige by status checks (y/n)? [n]: ",
@@ -149,7 +150,7 @@ if __name__ == "__main__":
         }
 
         # Multiple entry questions
-        DICT_QUESTIONS = {
+        dict_questions = {
             "topics": {
                 "start_question": "Add a topic to the repository (y/n)? [n]: ",
                 "init_loop": "What topic would you like to add? ",
@@ -173,7 +174,7 @@ if __name__ == "__main__":
         directory = "terraform/"
         os.mkdir(directory)
         token_q = (
-            "Enter the personal access token for " "creating the organizational repo: "
+            "Enter the personal access token for creating the organizational repo: "
         )
         os.environ["GITHUB_ORGANIZATION"] = "{{ cookiecutter.github_username }}"
         os.environ["GITHUB_TOKEN"] = input(token_q).lower()
@@ -183,11 +184,11 @@ if __name__ == "__main__":
             "description": "{{ cookiecutter.short_description }}",
         }
 
-        for var, question in YN_QUESTIONS.items():
+        for var, question in yn_questions.items():
             choice = check_choice(question)
             terraform_vars[var] = str(choice).lower()
 
-        for var, question in DICT_QUESTIONS.items():
+        for var, question in dict_questions.items():
             choice = check_choice(question["start_question"])
             if choice:
                 selection = multiple_choices(question["init_loop"])
@@ -206,3 +207,7 @@ if __name__ == "__main__":
             "{{ cookiecutter.module_name }}.git"
         )
         open_pr(source_repo, os.getcwd())
+
+
+if __name__ == "__main__":
+    main()
