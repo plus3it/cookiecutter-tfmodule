@@ -1,4 +1,4 @@
-"""Creates GitHub Project"""
+"""Create GitHub project."""
 
 import os
 import json
@@ -26,7 +26,7 @@ PERM_OPTIONS = frozenset(["push", "pull", "admin"])
 
 
 def multiple_choices(question):
-    """Returns multiple choice user selection."""
+    """Return multiple choice user selection."""
     selection = []
     additional = "Would you like to add another (y/n)? [n]: "
 
@@ -39,7 +39,7 @@ def multiple_choices(question):
 
 
 def check_choice(question):
-    """Returns valid user yes/no answer."""
+    """Return valid user yes/no answer."""
     while True:
         choice = input(question).lower()
         if choice in YES_OPTIONS:
@@ -49,7 +49,7 @@ def check_choice(question):
 
 
 def get_collaborators():
-    """Returns list of collaborators to add to the project."""
+    """Return list of collaborators to add to the project."""
     collaborators = []
     collab_q = "Grant an organizational team access to the repo(y/n)? [n]: "
 
@@ -77,7 +77,7 @@ def get_collaborators():
 
 
 def run_terraform(directory, terraform_vars, target_module):
-    """Runs terraform init and apply."""
+    """Run terraform init and apply."""
     terraform = Terraform(directory)
     terraform.init(from_module=target_module)
 
@@ -91,7 +91,7 @@ def run_terraform(directory, terraform_vars, target_module):
 
 
 def open_pr(source_repo, working_dir):
-    """Opens a pull request."""
+    """Open a pull request."""
 
     # create a temp dir
     temp_dir = tempfile.mkdtemp()
@@ -129,7 +129,7 @@ def open_pr(source_repo, working_dir):
 
 
 def main():
-    """Create GitHub repo."""
+    """Create GitHub project."""
     if "{{ cookiecutter.create_repo }}".lower() == "yes":
         subprocess.check_call(["git", "init"])
         subprocess.check_call(["hub", "create"])
