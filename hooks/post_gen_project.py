@@ -92,7 +92,6 @@ def run_terraform(directory, terraform_vars, target_module):
 
 def open_pr(source_repo, working_dir):
     """Open a pull request."""
-
     # create a temp dir
     temp_dir = tempfile.mkdtemp()
 
