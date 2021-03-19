@@ -1,4 +1,4 @@
-FROM plus3it/tardigrade-ci:0.9.2
+FROM plus3it/tardigrade-ci:0.10.0
 
 RUN python -m pip install --no-cache-dir \
   GitPython \
