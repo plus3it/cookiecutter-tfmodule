@@ -14,7 +14,7 @@ from python_terraform import Terraform
 # get the github url of tfmodule template
 TF_GITHUB_REPO_SOURCE = "tfmodule-template.tf"
 
-with open(TF_GITHUB_REPO_SOURCE) as tf:
+with open(TF_GITHUB_REPO_SOURCE, encoding="utf8") as tf:
     tf_file = tf.read()
 TF_MODULE_URL = re.search('source = "(.*)"', tf_file).group(1)
 
@@ -81,7 +81,7 @@ def run_terraform(directory, terraform_vars, target_module):
     terraform = Terraform(directory)
     terraform.init(from_module=target_module)
 
-    with open(directory + "terraform.tfvars.json", "w") as fh_:
+    with open(directory + "terraform.tfvars.json", "w", encoding="utf-8") as fh_:
         fh_.write(json.dumps(terraform_vars))
 
     # ret_code, stdout, stderr
