@@ -1,4 +1,4 @@
-FROM plus3it/tardigrade-ci:0.21.2
+FROM plus3it/tardigrade-ci:0.21.3
 
 WORKDIR /ci-harness
 ENTRYPOINT ["make"]
