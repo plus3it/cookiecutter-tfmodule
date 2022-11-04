@@ -15,9 +15,5 @@
 tardigrade-ci/
 .tardigrade-ci
 
-# eclint
-
-.git/
-
 # go tests
 tests/go.*

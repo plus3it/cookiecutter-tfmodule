@@ -6,3 +6,6 @@ tardigrade-ci/
 
 # eclint
 .git/
+
+# python compiled files
+*.pyc
