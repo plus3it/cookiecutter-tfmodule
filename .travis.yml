@@ -1,19 +1,26 @@
-dist: bionic
+dist: focal
 
-language: node_js
-
-node_js:
-  - "12"
+language: minimal
 
 stages:
   - lint
   - deploy
 
+if: branch = master OR type = pull_request
+
+before_install:
+  - tmpdaemon=$(mktemp)
+  - sudo jq '."registry-mirrors" += ["https://mirror.gcr.io"]' /etc/docker/daemon.json > "$tmpdaemon"
+  - sudo mv "$tmpdaemon" /etc/docker/daemon.json
+  - sudo systemctl daemon-reload
+  - sudo systemctl restart docker
+  - docker system info
+
 jobs:
   include:
     - stage: lint
       name: Project Syntax Verification
-      script: make && make docker/run target=lint
+      script: make docker/run target=lint
     - stage: deploy
       if: branch = master AND type = push AND repo = plus3it/cookiecutter-tfmodule
       before_script:
@@ -28,8 +35,7 @@ jobs:
           (set -x; git tag -a $RELEASE_VERSION -m $RELEASE_VERSION)
       deploy:
         provider: releases
-        api_key:
-          secure: NO6lEq8oC9KPKSE0WBc8445f417laMA8uwMOU3rH5sOX3ELwab50fOgAsUnPyZQTUSk1gFidHSFSuPKHNOcxO4/9/UfZPpsjnkKz2+lyb/tzg64zLbmPCGlNlNZZy7MZm9LXVhm7QeTU2Bn7gOqpbX00/fU5jpLHIULcU1pyPArQG4s6cAR9N/AZ8RTn4Ob9FC1i+ty/6rPTvXVeiUQQ+YrYpAD4zYD5VLxDWZRwVdJsPbYU12If8Cu5rYBb/LbzIz/jjBwuR23OuUQgt1S/VbSfu0qjlRZVTxzIv0Btn1A3LSlTLKOAdXQRuENY9h/mYVMR7q9lCWKtFOTyANbAoY1hjXcbG87RyMRUg2x0dOf07yUlmegbr/Q/SCUT6caE2GLZhl4bEfRLSwgcWotwubJ4MUqIYm9o7NMNCN5KUIAZp3yfM4LASECmvzrfHkI9vZyVCsFbTQCgD5tZqUSYDEGjhwSFDiNbyU2cAcjh8+yR3PCZMuCksvEnFX9kXVa+26OwWFMGurQbCNdsIuD9RZMKGPsI6Dq/sQhZrvYThJogepgRdKPWaXcDILkdrZOlNgm8ONwTM5z3M1EMpoUuExVw+S5q2BQuLIvG1/5O2YO/y0B7Mp1aGxMaD1rD0cGFlEiWJv8skhHOCrq33HLHyFjaa7GrsSrVsAUXeb2Zc3A=
+        api_key: ${GH_RELEASES_TOKEN}
         name: $RELEASE_VERSION
         body: $RELEASE_BODY
         tag_name: $RELEASE_VERSION
