@@ -1,4 +1,4 @@
-FROM plus3it/tardigrade-ci:0.24.6
+FROM plus3it/tardigrade-ci:0.24.7
 
 RUN pyenv global $(make python38/version) && pyenv rehash && python --version
 
